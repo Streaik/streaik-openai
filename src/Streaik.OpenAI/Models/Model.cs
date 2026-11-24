@@ -36,4 +36,8 @@ public class Model
 
     [JsonPropertyName("pricing")]
     public ModelPricing? Pricing { get; set; }
+
+    [JsonPropertyName("shutdown_date")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public DateOnly? ShutdownDate { get; set; }
 }
