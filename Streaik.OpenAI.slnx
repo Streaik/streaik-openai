@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Streaik.OpenAI/Streaik.OpenAI.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Streaik.OpenAI.Tests/Streaik.OpenAI.Tests.csproj" />
+  </Folder>
+</Solution>
