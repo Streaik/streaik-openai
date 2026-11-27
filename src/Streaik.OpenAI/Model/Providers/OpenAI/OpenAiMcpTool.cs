@@ -45,7 +45,7 @@ public sealed class OpenAiMcpTool
     public Dictionary<string, string>? Headers { get; set; }
 }
 
-[JsonConverter(typeof(JsonStringEnumConverter<OpenAiMcpCaller>))]
+[JsonConverter(typeof(OpenAiMcpCallerConverter))]
 public enum OpenAiMcpCaller
 {
     [JsonStringEnumMemberName("direct")]
@@ -53,6 +53,8 @@ public enum OpenAiMcpCaller
     [JsonStringEnumMemberName("programmatic")]
     Programmatic
 }
+
+internal sealed class OpenAiMcpCallerConverter() : JsonStringEnumConverter<OpenAiMcpCaller>(namingPolicy: null, allowIntegerValues: false);
 
 public sealed class OpenAiMcpToolFilter
 {

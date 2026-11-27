@@ -12,9 +12,9 @@ public sealed class McpToolContractTests
     [InlineData("{\"read_only\":false,\"tool_names\":[\"lookup\"]}", "{\"always\":{\"tool_names\":[\"write\"]},\"never\":{\"read_only\":true}}")]
     public void Supported_MCP_configuration_round_trips(string allowed, string approval)
     {
-        var wire = $$"""
+        var wire = $$$"""
             {"type":"mcp","server_label":"inventory","server_url":"https://inventory.example.test/mcp","server_description":"Inventory",
-             "allowed_callers":["direct","programmatic"],"defer_loading":false,"allowed_tools":{{allowed}},"require_approval":{{approval}},
+             "allowed_callers":["direct","programmatic"],"defer_loading":false,"allowed_tools":{{{allowed}}},"require_approval":{{{approval}}},
              "authorization":"isolated-fixture-token","headers":{"X-Region":"eu"}}
             """;
         var tool = JsonSerializer.Deserialize<OpenAiMcpTool>(wire)!;
