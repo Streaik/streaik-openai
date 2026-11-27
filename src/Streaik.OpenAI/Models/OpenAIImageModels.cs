@@ -9,6 +9,7 @@ namespace Streaik.OpenAI.Models;
 /// </summary>
 public class OpenAIImageGenerationRequest
 {
+    /// <summary>The image description. OpenAI accepts up to 32,000 characters.</summary>
     [JsonPropertyName("prompt")]
     public string Prompt { get; set; } = null!;
 
@@ -28,6 +29,7 @@ public class OpenAIImageGenerationRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public int? FrameDurationMs { get; set; }
 
+    /// <summary>The model ID, including dated GPT Image snapshots. Kept open for forward compatibility.</summary>
     [JsonPropertyName("model")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string Model { get; set; } = null!;
@@ -64,6 +66,7 @@ public class OpenAIImageGenerationRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? SafetyIdentifier { get; set; }
 
+    /// <summary>A preset, <c>auto</c>, or a model-supported WIDTHxHEIGHT resolution.</summary>
     [JsonPropertyName("size")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? Size { get; set; }
